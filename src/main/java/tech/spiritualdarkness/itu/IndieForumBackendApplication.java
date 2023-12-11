@@ -1,8 +1,7 @@
-package me.qingqing.indieforumbackend;
+package tech.spiritualdarkness.itu;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 @SpringBootApplication()
 public class IndieForumBackendApplication {
