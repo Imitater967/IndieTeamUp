@@ -44,6 +44,8 @@ repositories {
 }
 
 dependencies {
+
+	implementation group: 'commons-codec', name: 'commons-codec', version: '1.16.0'
 	implementation group: 'com.baomidou', name: 'mybatis-plus', version: '3.5.4.1'
 	implementation 'org.springframework.kafka:spring-kafka'
 	implementation 'org.springframework.boot:spring-boot-starter-web'

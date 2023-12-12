@@ -10,9 +10,4 @@ import tech.spiritualdarkness.itu.service.IUserService;
 public class UserController {
     @Autowired
     private IUserService userService;
-    @RequestMapping("/register")
-    public String say(){
-        return "Hello World + "+userService.printHi();
-    }
-
 }

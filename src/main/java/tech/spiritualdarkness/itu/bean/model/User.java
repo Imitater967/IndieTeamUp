@@ -18,9 +18,6 @@ public class User implements Serializable {
 
     @NotEmpty(message = "用户名不能为空")
     private String username;
-
-    @NotEmpty
-    @Size(min=8,message = "密码长度不能小于8")
-    private String password;
-
+    private String phone;
+    private int code;
 }
