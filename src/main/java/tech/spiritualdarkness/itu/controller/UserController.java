@@ -23,4 +23,14 @@ public class UserController {
         user.setPassword(password);
         return userService.register(user);
     }
+
+    @GetMapping("/login")
+    public Result<User, UserResultStatus> login(@RequestParam String username
+            , @RequestParam String password){
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        return userService.login(user);
+    }
+
 }

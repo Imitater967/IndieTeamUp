@@ -20,7 +20,7 @@ public class JWTUtil {
     public static String createJwtToken(User user){
         Calendar date = getExpireTime();
         JWTCreator.Builder builder = JWT.create();
-        builder.withClaim("uuid",user.getId())
+        builder.withClaim("uuid",user.getUuid())
                 .withClaim("username",user.getUsername());
         return builder.withExpiresAt(getExpireTime().getTime())
                 .sign(Algorithm.HMAC256(user.getPassword()));

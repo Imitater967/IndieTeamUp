@@ -33,7 +33,26 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements IUs
 
     @Override
     public Result<User, UserResultStatus> login(User user) {
-        return null;
+        Result<User, UserResultStatus> result = new Result<>();
+        User dbUser = userDAO.getByUsername(user.getUsername());
+        boolean exits = dbUser !=null;
+        if(!exits){
+            result.setStatus(UserResultStatus.LoginFail);
+            return result;
+        }
+
+        boolean passwordEqual = dbUser.getPassword().equals(user.getPassword());
+        if (!passwordEqual) {
+            return result;
+        }
+
+        dbUser.setJwt_code(JWTUtil.createJwtToken(dbUser));
+        result.setStatus(UserResultStatus.LoginFail);
+
+        userDAO.login(dbUser.getUuid(),dbUser.getJwt_code());
+        result.setStatus(UserResultStatus.LoginSuccess);
+        result.setData(dbUser);
+        return result;
     }
 
     @Override

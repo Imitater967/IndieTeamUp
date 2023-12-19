@@ -20,6 +20,8 @@ public interface UserMapper extends BaseMapper<User> {
      */
     int update(User user);
 
+    int login(int uuid,String jwt_code);
+
     /**
      * 根据id获取用户
      *

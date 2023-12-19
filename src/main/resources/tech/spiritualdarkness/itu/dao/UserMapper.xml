@@ -14,7 +14,13 @@
     <update id="update" parameterType="tech.spiritualdarkness.itu.bean.model.User">
         update `itu_user`
         set password=#{password}
-        where uuid = #{id}
+        where uuid = #{uuid}
+    </update>
+
+    <update id="login" parameterType="tech.spiritualdarkness.itu.bean.model.User">
+        update `itu_user`
+        set jwt_code = #{jwt_code}
+        where uuid = #{uuid}
     </update>
 
     <select id="getById" resultMap="UserResultMap">
