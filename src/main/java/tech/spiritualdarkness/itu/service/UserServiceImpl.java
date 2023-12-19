@@ -8,6 +8,7 @@ import tech.spiritualdarkness.itu.bean.model.User;
 import tech.spiritualdarkness.itu.dao.UserMapper;
 import tech.spiritualdarkness.itu.response.Result;
 import tech.spiritualdarkness.itu.response.UserResultStatus;
+import tech.spiritualdarkness.itu.util.JWTUtil;
 
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements IUserService {
@@ -17,10 +18,17 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements IUs
 
     @Override
     public Result<User, UserResultStatus> register(User user) {
+        Result<User, UserResultStatus> result = new Result<>();
         boolean exits = userDAO.getByUsername(user.getUsername())!=null;
-
-
-        return null;
+        if(exits){
+            result.setStatus(UserResultStatus.UserExits);
+            return result;
+        }
+        userDAO.add(user);
+        user = userDAO.getByUsername(user.getUsername());
+        result.setData(user);
+        result.setStatus(UserResultStatus.RegisteredSuccessfully);
+        return result;
     }
 
     @Override
