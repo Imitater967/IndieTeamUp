@@ -9,8 +9,8 @@ import java.io.Serializable;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Result<T> implements Serializable {
-    ResultStatus resultStatus;
+public class Result<T,U extends Status> implements Serializable {
+    U status;
     T data;
 
 }

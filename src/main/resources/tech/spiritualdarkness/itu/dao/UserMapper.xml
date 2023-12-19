@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="tech.spiritualdarkness.itu.dao.IUserMapper">
+<mapper namespace="tech.spiritualdarkness.itu.dao.UserMapper">
     <resultMap id="UserResultMap" type="tech.spiritualdarkness.itu.bean.model.User">
         <id column="id" property="id"/>
         <result column="username" property="username"/>
@@ -8,24 +8,24 @@
     </resultMap>
 
     <insert id="add" parameterType="tech.spiritualdarkness.itu.bean.model.User">
-        insert into `user` (username, password)
+        insert into `itu_user` (username, password)
         values (#{username}, #{password})
     </insert>
     <update id="update" parameterType="tech.spiritualdarkness.itu.bean.model.User">
-        update `user`
+        update `itu_user`
         set password=#{password}
-        where id = #{id}
+        where uuid = #{id}
     </update>
 
     <select id="getById" resultMap="UserResultMap">
         select *
-        from `user`
-        where id = #{id}
+        from `itu_user`
+        where uuid = #{id}
     </select>
 
     <select id="getByUsername" resultMap="UserResultMap">
         select *
-        from `user`
+        from `itu_user`
         where username = #{username}
     </select>
 </mapper>
