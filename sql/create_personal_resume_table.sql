@@ -1,6 +1,8 @@
+drop table  if exists itu_user_person_resume;
 create table itu_user_person_resume
 (
     uuid       int not null UNIQUE ,
+    real_name varchar(6),
     work_type ENUM('线上','线下','线下或线下') not null,
     sex ENUM('男','女'),
     pay_method ENUM('免费','月薪','外包','均可'),

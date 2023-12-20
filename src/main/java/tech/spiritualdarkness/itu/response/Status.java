@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Status {
+public class Status implements IStatus{
     private int code;
     private boolean success;
     private String msg;

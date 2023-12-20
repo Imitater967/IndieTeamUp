@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Result<T,U extends Status> implements Serializable {
+public class Result<T,U extends IStatus> implements Serializable {
     U status;
     T data;
 
