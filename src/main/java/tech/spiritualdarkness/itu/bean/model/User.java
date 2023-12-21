@@ -1,6 +1,7 @@
 package tech.spiritualdarkness.itu.bean.model;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.validation.constraints.NotEmpty;
@@ -21,6 +22,7 @@ import java.util.List;
 @AllArgsConstructor
 @JsonIgnoreProperties(value = {"password",}, allowSetters = true)
 public class User implements Serializable {
+    @TableId
     @NotNull(message = "ID不能为空")
     private Integer uuid;
     @NotEmpty(message = "用户名不能为空")

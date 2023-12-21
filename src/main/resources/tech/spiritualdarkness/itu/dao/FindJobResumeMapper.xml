@@ -38,5 +38,4 @@
         from `itu_user_person_resume`
         where uuid = #{uuid}
     </select>
-
 </mapper>

@@ -6,15 +6,17 @@ import lombok.Getter;
 
 
 public enum WorkType {
-    WORK_AT_HOME(1),
-    WORK_AT_COMPANY(2),
-    ANY(3);
+    WORK_AT_HOME(1,"线上"),
+    WORK_AT_COMPANY(2,"线下"),
+    ANY(3,"都可以");
 
+    private int id;
     @Getter
     @EnumValue
     @JsonValue
-    private int id;
-    WorkType(int id){
+    private String desc;
+    WorkType(int id,String desc){
         this.id = id;
+        this.desc = desc;
     }
 }

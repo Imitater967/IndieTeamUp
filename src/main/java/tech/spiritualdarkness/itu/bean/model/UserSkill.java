@@ -1,5 +1,6 @@
 package tech.spiritualdarkness.itu.bean.model;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,7 @@ import java.sql.Date;
 @NoArgsConstructor
 @TableName("itu_user_person_education")
 public class UserSkill {
+    @TableId
     private Integer uuid;
     private String skill_name;
     private int skill_level;

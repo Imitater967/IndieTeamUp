@@ -6,5 +6,5 @@ import tech.spiritualdarkness.itu.response.ResumeStatus;
 
 public interface IFindJobResumeService {
     public Result<FindJobResume, ResumeStatus> getByUuid(Integer uuid);
-    public void update(FindJobResume findJobResume);
+    public Result<FindJobResume, ResumeStatus> update(FindJobResume findJobResume);
 }

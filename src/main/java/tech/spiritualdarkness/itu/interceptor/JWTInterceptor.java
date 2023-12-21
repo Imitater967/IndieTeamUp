@@ -27,6 +27,7 @@ public class JWTInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String token = request.getHeader("token");
+        String uuid = request.getHeader("uuid");
         String username = request.getHeader("username");
         if(!StringUtils.hasText(token)){
             log.debug("token为空");
@@ -39,6 +40,15 @@ public class JWTInterceptor implements HandlerInterceptor {
                 log.debug("不存在用户");
                 return false;
             }
+            if(!user.getUsername().equals(username)){
+                log.debug("用户名和token不匹配");
+                return false;
+            }
+            if(!(user.getUuid().toString().equals(uuid))){
+                log.debug("uuid不匹配");
+                return false;
+            }
+
             JWTUtil.verify(token,user.getPassword());
 
         } catch (SignatureVerificationException e) {

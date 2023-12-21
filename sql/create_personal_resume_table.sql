@@ -3,6 +3,7 @@ create table itu_user_person_resume
 (
     uuid       int not null UNIQUE ,
     real_name varchar(6),
+    age tinyint,
     work_type ENUM('线上','线下','线下或线下') not null,
     sex ENUM('男','女'),
     pay_method ENUM('免费','月薪','外包','均可'),
@@ -10,8 +11,8 @@ create table itu_user_person_resume
     min_qualify ENUM('无','个体户','小规模','一般'),
     current_province VARCHAR(128),
     expect_province VARCHAR(128),
-    first_job varchar(8),
-    second_job varchar(8),
+    first_job varchar(16),
+    second_job varchar(16),
     salary_stock tinyint,
     salary tinyint,
     introduce varchar(255),

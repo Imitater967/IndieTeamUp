@@ -26,7 +26,11 @@ public class FindJobResumeServiceImpl extends ServiceImpl<FindJobResumeMapper, F
     }
 
     @Override
-    public void update(FindJobResume findJobResume) {
+    public Result<FindJobResume, ResumeStatus> update(FindJobResume findJobResume) {
+        Result<FindJobResume, ResumeStatus> result = new Result<>();
+        resumeMapper.delete(findJobResume.getUuid());
+        resumeMapper.insert(findJobResume);
 
+        return null;
     }
 }
