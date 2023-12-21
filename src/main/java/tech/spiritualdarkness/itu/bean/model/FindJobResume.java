@@ -1,10 +1,13 @@
 package tech.spiritualdarkness.itu.bean.model;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import tech.spiritualdarkness.itu.bean.enumtype.*;
 
 @Data
+@TableName("itu_user_person_resume")
 public class FindJobResume {
     @NotEmpty
     private Integer uuid;
@@ -33,5 +36,8 @@ public class FindJobResume {
     private int salary;
     @NotEmpty
     private String introduce;
+
+    @TableField(exist = false)
+    private UserEducation education;
 
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tech.spiritualdarkness.itu.dao.FindJobResumeMapper">
+    <resultMap id="FindJobResumeMapper" type="tech.spiritualdarkness.itu.bean.model.FindJobResume">
+        <id column="uuid" property="uuid"/>
+        <result column="username" property="username"/>
+        <result column="real_name" property="real_name"/>
+        <result column="age" property="age"/>
+        <result column="work_type" property="work_type"/>
+        <result column="sex" property="sex"/>
+        <result column="pay_method" property="pay_method"/>
+        <result column="work_method" property="work_method"/>
+        <result column="min_qualify" property="min_qualify"/>
+        <result column="current_province" property="current_province"/>
+        <result column="expect_province" property="expect_province"/>
+        <result column="first_job" property="first_job"/>
+        <result column="second_job" property="second_job"/>
+        <result column="salary_stock" property="salary_stock"/>
+        <result column="salary" property="salary"/>
+        <result column="introduce" property="introduce"/>
+    </resultMap>
+
+
+    <select id="getById" resultMap="FindJobResumeMapper">
+        select *
+        from `itu_user_person_resume`
+        where uuid = #{uuid}
+    </select>
+
+</mapper>

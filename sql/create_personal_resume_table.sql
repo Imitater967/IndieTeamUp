@@ -19,12 +19,13 @@ create table itu_user_person_resume
 ) engine = InnoDB
   default charset = utf8mb4;
 
+drop table if exists itu_user_person_education;
 create table itu_user_person_education
 (
     uuid         int not null primary key ,
     degree    enum('大专','本科','硕士及以上') not null ,
     university varchar(16) not null ,
-    graduate DATETIME not null
+    graduate DATE not null
 ) engine = InnoDB
   default charset = utf8mb4;
 

@@ -1,5 +1,6 @@
 package tech.spiritualdarkness.itu.bean.model;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.validation.constraints.NotEmpty;
@@ -8,8 +9,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
+import tech.spiritualdarkness.itu.bean.enumtype.EducationDegree;
 
 import java.io.Serializable;
+import java.util.List;
 
 
 @Data
@@ -28,4 +31,8 @@ public class User implements Serializable {
     private String password;
     private String phone_code;
     private String jwt_code;
+    @TableField(exist = false)
+    private UserEducation degree;
+    @TableField
+    private List<UserSkill> userSkills;
 }
