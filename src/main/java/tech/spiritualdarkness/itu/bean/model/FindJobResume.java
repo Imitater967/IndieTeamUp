@@ -6,6 +6,8 @@ import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import tech.spiritualdarkness.itu.bean.enumtype.*;
 
+import java.util.List;
+
 @Data
 @TableName("itu_user_person_resume")
 public class FindJobResume {
@@ -38,6 +40,8 @@ public class FindJobResume {
     private String introduce;
 
     @TableField(exist = false)
-    private UserEducation education;
+    private UserEducation degree;
+    @TableField
+    private List<UserSkill> userSkills;
 
 }

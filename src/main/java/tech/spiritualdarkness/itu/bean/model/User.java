@@ -31,8 +31,4 @@ public class User implements Serializable {
     private String password;
     private String phone_code;
     private String jwt_code;
-    @TableField(exist = false)
-    private UserEducation degree;
-    @TableField
-    private List<UserSkill> userSkills;
 }
