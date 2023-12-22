@@ -5,16 +5,20 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
 
 public enum PayMethod {
-    FREE(1),
-    MONTHLY(2),
-    OUTSOURCE(3),
-    MONTHLY_OR_OUTSOURCE(4);
+    FREE(1, "免费"),
+    MONTHLY(2, "月薪"),
+    OUTSOURCE(3, "外包"),
+    Any(4, "均可");
+
+    @JsonValue
+    private Integer id;
 
     @Getter
     @EnumValue
-    @JsonValue
-    private int id;
-    PayMethod(int id){
+    private String desc;
+
+    PayMethod(int id,String desc) {
         this.id = id;
+        this.desc = desc;
     }
 }

@@ -30,7 +30,7 @@ public class ResumeController {
         try {
             uuidInt = Integer.parseInt(uuid);
         } catch (Exception e) {
-            log.debug(e.getMessage());
+            e.printStackTrace();
             return new Result<>(ResumeStatus.ArgError, null);
         }
         return findJobResumeService.getByUuid(uuidInt);

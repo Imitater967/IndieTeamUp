@@ -3,8 +3,7 @@
 <mapper namespace="tech.spiritualdarkness.itu.dao.FindJobResumeMapper">
     <resultMap id="FindJobResumeMapper" type="tech.spiritualdarkness.itu.bean.model.FindJobResume">
         <id column="uuid" property="uuid"/>
-        <result column="username" property="username"/>
-        <result column="real_name" property="real_name"/>
+        <result column="real_name" property="real_name" jdbcType="VARCHAR"/>
         <result column="age" property="age"/>
         <result column="work_type" property="work_type"/>
         <result column="sex" property="sex"/>
@@ -32,10 +31,4 @@
         </collection>
     </resultMap>
 
-
-    <select id="getById" resultMap="FindJobResumeMapper">
-        select *
-        from `itu_user_person_resume`
-        where uuid = #{uuid}
-    </select>
 </mapper>

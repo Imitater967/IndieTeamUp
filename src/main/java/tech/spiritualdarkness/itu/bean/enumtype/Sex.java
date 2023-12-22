@@ -5,13 +5,17 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
 
 public enum Sex {
-    Male(1), Female(2);
+    Male(1,"男"), Female(2,"女");
 
-    @EnumValue
-    @Getter
     @JsonValue
-    int id;
-    Sex(int id){
+    Integer id;
+
+    @Getter
+    @EnumValue
+    String desc;
+
+    Sex(int id, String desc) {
+        this.desc = desc;
         this.id = id;
     }
 }

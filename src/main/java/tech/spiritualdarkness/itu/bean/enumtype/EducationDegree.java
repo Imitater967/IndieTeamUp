@@ -5,15 +5,18 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
 
 public enum EducationDegree {
-    ASSOCIATED(1),
-    BACHELOR(2),
-    MASTER(3);
+    ASSOCIATED(1,"大专"),
+    BACHELOR(2,"本科"),
+    MASTER(3,"硕士及以上");
+
+    @JsonValue
+    private Integer id;
 
     @Getter
     @EnumValue
-    @JsonValue
-    private int id;
-    EducationDegree(int id){
+    private String desc;
+    EducationDegree(int id, String desc){
         this.id = id;
+        this.desc=desc;
     }
 }

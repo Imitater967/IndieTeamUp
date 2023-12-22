@@ -1,5 +1,6 @@
 package tech.spiritualdarkness.itu.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ public class FindJobResumeServiceImpl extends ServiceImpl<FindJobResumeMapper, F
     @Override
     public Result<FindJobResume, ResumeStatus> getByUuid(Integer uuid) {
         Result<FindJobResume, ResumeStatus> result = new Result<>();
-        var resume = resumeMapper.getById(uuid);
+        var resume = resumeMapper.selectById(uuid);
         if(resume == null){
             result.setStatus(ResumeStatus.ResumeNotFound);
             return result;
@@ -28,9 +29,17 @@ public class FindJobResumeServiceImpl extends ServiceImpl<FindJobResumeMapper, F
     @Override
     public Result<FindJobResume, ResumeStatus> update(FindJobResume findJobResume) {
         Result<FindJobResume, ResumeStatus> result = new Result<>();
-        resumeMapper.delete(findJobResume.getUuid());
-        resumeMapper.insert(findJobResume);
+        try{
+            resumeMapper.deleteById(findJobResume.getUuid());
+            resumeMapper.insert(findJobResume);
 
-        return null;
+            result.setData(findJobResume);
+            result.setStatus(ResumeStatus.ResumeUpdated);
+            return result;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        result.setStatus(ResumeStatus.ResumeNotFound);
+        return result;
     }
 }
