@@ -18,7 +18,6 @@ import java.util.Date;
 public class FindEmployeeResume {
 
     @TableId
-    private Integer project_id;
     private Integer publisher_uuid;
     private String introduce;
     private FinishStage finish_stage;

@@ -2,7 +2,6 @@ drop table if exists itu_project_resume;
 
 create table `itu_project_resume`
 (
-    project_id         int not null auto_increment UNIQUE,
     publisher_uuid        int not null,
     introduce    varchar(127),
     finish_stage     ENUM('未开工','Demo','正式发行','版本更新'),
@@ -16,7 +15,7 @@ create table `itu_project_resume`
     finish_date DATE,
     pay_method ENUM('免费','月薪','外包','均可'),
     work_method ENUM('兼职','全职','均可'),
-    PRIMARY KEY (`project_id`)
+    PRIMARY KEY (`publisher_uuid`)
 
 ) engine = InnoDB
   default charset = utf8mb4;

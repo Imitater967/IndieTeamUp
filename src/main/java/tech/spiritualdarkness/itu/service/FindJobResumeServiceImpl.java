@@ -11,8 +11,7 @@ import tech.spiritualdarkness.itu.response.ResumeStatus;
 
 @Service
 public class FindJobResumeServiceImpl extends ServiceImpl<FindJobResumeMapper, FindJobResume> implements IFindJobResumeService {
-    final
-    FindJobResumeMapper resumeMapper;
+    final FindJobResumeMapper resumeMapper;
 
     public FindJobResumeServiceImpl(FindJobResumeMapper resumeMapper) {
         this.resumeMapper = resumeMapper;

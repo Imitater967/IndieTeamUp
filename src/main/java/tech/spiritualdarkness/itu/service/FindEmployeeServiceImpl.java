@@ -37,7 +37,7 @@ public class FindEmployeeServiceImpl implements  IFindEmployeeService{
     public Result<FindEmployeeResume, ResumeStatus> update(FindEmployeeResume findJobResume) {
         Result<FindEmployeeResume,ResumeStatus> result=new Result<>();
         try{
-            resumeMapper.deleteById(findJobResume.getProject_id());
+            resumeMapper.deleteById(findJobResume.getPublisher_uuid());
             resumeMapper.insert(findJobResume);
 
             result.setData(findJobResume);
