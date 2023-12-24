@@ -11,10 +11,15 @@ import tech.spiritualdarkness.itu.response.ResumeStatus;
 
 @Service
 public class FindJobResumeServiceImpl extends ServiceImpl<FindJobResumeMapper, FindJobResume> implements IFindJobResumeService {
-    @Autowired
+    final
     FindJobResumeMapper resumeMapper;
+
+    public FindJobResumeServiceImpl(FindJobResumeMapper resumeMapper) {
+        this.resumeMapper = resumeMapper;
+    }
+
     @Override
-    public Result<FindJobResume, ResumeStatus> getByUuid(Integer uuid) {
+    public Result<FindJobResume, ResumeStatus> getById(Integer uuid) {
         Result<FindJobResume, ResumeStatus> result = new Result<>();
         var resume = resumeMapper.selectById(uuid);
         if(resume == null){

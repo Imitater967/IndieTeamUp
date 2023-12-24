@@ -1,19 +1,12 @@
 package tech.spiritualdarkness.itu.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tech.spiritualdarkness.itu.bean.enumtype.PayMethod;
-import tech.spiritualdarkness.itu.bean.enumtype.Qualify;
-import tech.spiritualdarkness.itu.bean.enumtype.Sex;
-import tech.spiritualdarkness.itu.bean.enumtype.WorkMethod;
 import tech.spiritualdarkness.itu.bean.model.FindJobResume;
 import tech.spiritualdarkness.itu.response.Result;
 import tech.spiritualdarkness.itu.response.ResumeStatus;
 import tech.spiritualdarkness.itu.service.IFindJobResumeService;
-import tech.spiritualdarkness.itu.util.JWTUtil;
 
 @Slf4j
 @RestController
@@ -33,7 +26,7 @@ public class ResumeController {
             e.printStackTrace();
             return new Result<>(ResumeStatus.ArgError, null);
         }
-        return findJobResumeService.getByUuid(uuidInt);
+        return findJobResumeService.getById(uuidInt);
     }
     @PostMapping("/find_job/update")
     public Result<FindJobResume, ResumeStatus> updateJobResume(
