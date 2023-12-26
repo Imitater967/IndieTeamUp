@@ -17,9 +17,13 @@
         <result column="salary_stock" property="salary_stock"/>
         <result column="salary" property="salary"/>
         <result column="introduce" property="introduce"/>
-        <association property="degree" javaType="tech.spiritualdarkness.itu.bean.model.UserEducation">
+        <association
+                property="degree"
+                column="uuid"
+                javaType="tech.spiritualdarkness.itu.bean.model.UserEducation"
+                select="tech.spiritualdarkness.itu.dao.EducationDegreeMapper.selectById"
+            >
             <id column="uuid" property="uuid"/>
-            <result column="username" property="username"/>
             <result column="degree" property="degree"/>
             <result column="university" property="university"/>
             <result column="graduate" property="graduate"/>
