@@ -3,15 +3,8 @@
 <mapper namespace="tech.spiritualdarkness.itu.dao.EducationDegreeMapper">
     <resultMap id="UserEducationMapper" type="tech.spiritualdarkness.itu.bean.model.UserEducation">
         <id column="uuid" property="uuid"/>
-        <result column="username" property="username"/>
         <result column="degree" property="degree"/>
         <result column="university" property="university"/>
         <result column="graduate" property="graduate"/>
     </resultMap>
-
-    <select id="getById" resultMap="UserEducationMapper">
-        select *
-        from `itu_user_person_education`
-        where uuid = #{uuid}
-    </select>
 </mapper>

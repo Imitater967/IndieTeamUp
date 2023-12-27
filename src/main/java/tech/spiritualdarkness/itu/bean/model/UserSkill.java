@@ -10,7 +10,7 @@ import java.sql.Date;
 
 @Data
 @NoArgsConstructor
-@TableName("itu_user_person_education")
+@TableName("itu_user_person_skill_overview")
 public class UserSkill {
     @TableId
     private Integer uuid;

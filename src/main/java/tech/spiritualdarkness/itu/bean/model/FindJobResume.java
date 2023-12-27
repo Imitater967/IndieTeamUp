@@ -3,7 +3,6 @@ package tech.spiritualdarkness.itu.bean.model;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -47,11 +46,9 @@ public class FindJobResume {
     private String introduce;
 
     @TableField(exist = false)
-    @JsonValue(value = false)
     private UserEducation degree;
 
-    @JsonValue(value = false)
     @TableField(exist = false)
-    private List<UserSkill> userSkills;
+    private List<UserSkill> user_skills;
 
 }

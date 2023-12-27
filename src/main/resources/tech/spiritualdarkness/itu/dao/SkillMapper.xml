@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tech.spiritualdarkness.itu.dao.SkillMapper">
+    <resultMap id="SkillMapper" type="tech.spiritualdarkness.itu.bean.model.UserSkill">
+        <id column="uuid" property="uuid"/>
+        <result column="skill_name" property="skill_name"/>
+        <result column="skill_level" property="skill_level"/>
+    </resultMap>
+</mapper>
