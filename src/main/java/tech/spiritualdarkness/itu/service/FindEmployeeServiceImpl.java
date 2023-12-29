@@ -2,11 +2,9 @@ package tech.spiritualdarkness.itu.service;
 
 import org.springframework.stereotype.Service;
 import tech.spiritualdarkness.itu.bean.model.FindEmployeeResume;
-import tech.spiritualdarkness.itu.bean.model.FindJobResume;
 import tech.spiritualdarkness.itu.dao.FindEmployeeResumeMapper;
-import tech.spiritualdarkness.itu.dao.FindJobResumeMapper;
-import tech.spiritualdarkness.itu.response.Result;
-import tech.spiritualdarkness.itu.response.ResumeStatus;
+import tech.spiritualdarkness.itu.bean.vo.response.Result;
+import tech.spiritualdarkness.itu.bean.vo.response.ResumeStatus;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -8,8 +8,8 @@ import tech.spiritualdarkness.itu.bean.model.UserSkill;
 import tech.spiritualdarkness.itu.dao.EducationDegreeMapper;
 import tech.spiritualdarkness.itu.dao.FindJobResumeMapper;
 import tech.spiritualdarkness.itu.dao.SkillMapper;
-import tech.spiritualdarkness.itu.response.Result;
-import tech.spiritualdarkness.itu.response.ResumeStatus;
+import tech.spiritualdarkness.itu.bean.vo.response.Result;
+import tech.spiritualdarkness.itu.bean.vo.response.ResumeStatus;
 
 @Service
 public class FindJobResumeServiceImpl extends ServiceImpl<FindJobResumeMapper, FindJobResume> implements IFindJobResumeService {

@@ -1,4 +1,4 @@
-package tech.spiritualdarkness.itu.response;
+package tech.spiritualdarkness.itu.bean.vo.response;
 
 public class ResumeStatus extends Status {
     public static ResumeStatus ResumeFound = new ResumeStatus(200,true,"找到简历");

@@ -1,4 +1,4 @@
-package tech.spiritualdarkness.itu.response;
+package tech.spiritualdarkness.itu.bean.vo.response;
 
 
 /**

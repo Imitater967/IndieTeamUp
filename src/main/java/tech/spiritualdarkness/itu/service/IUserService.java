@@ -3,8 +3,8 @@ package tech.spiritualdarkness.itu.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import jakarta.servlet.http.HttpSession;
 import tech.spiritualdarkness.itu.bean.model.User;
-import tech.spiritualdarkness.itu.response.Result;
-import tech.spiritualdarkness.itu.response.UserResultStatus;
+import tech.spiritualdarkness.itu.bean.vo.response.Result;
+import tech.spiritualdarkness.itu.bean.vo.response.UserResultStatus;
 
 /**
  * @author Megumin

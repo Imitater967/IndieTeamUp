@@ -1,21 +1,14 @@
 package tech.spiritualdarkness.itu.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tech.spiritualdarkness.itu.bean.enumtype.*;
 import tech.spiritualdarkness.itu.bean.model.FindEmployeeResume;
 import tech.spiritualdarkness.itu.bean.model.FindJobResume;
-import tech.spiritualdarkness.itu.dao.FindEmployeeResumeMapper;
-import tech.spiritualdarkness.itu.response.Result;
-import tech.spiritualdarkness.itu.response.ResumeStatus;
+import tech.spiritualdarkness.itu.bean.vo.response.Result;
+import tech.spiritualdarkness.itu.bean.vo.response.ResumeStatus;
 import tech.spiritualdarkness.itu.service.IFindEmployeeService;
 import tech.spiritualdarkness.itu.service.IFindJobResumeService;
-
-import java.util.Calendar;
-import java.util.Date;
 
 @Slf4j
 @RestController
@@ -42,7 +35,7 @@ public class ResumeController {
     public Result<FindEmployeeResume, ResumeStatus> updateFindEmployeeResume(
             @RequestHeader int uuid,
             @RequestBody FindEmployeeResume resume
-    ) throws JsonProcessingException {
+    ){
 
         resume.setPublisher_uuid(uuid);
 
