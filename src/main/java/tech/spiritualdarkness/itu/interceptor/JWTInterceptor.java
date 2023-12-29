@@ -26,6 +26,16 @@ public class JWTInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+
+
+        boolean devEnv = true;
+        if(devEnv){
+            log.warn("警告警告警告");
+            log.warn("当前未开启正版验证");
+            log.warn("警告警告警告");
+            return true;
+        }
+
         String token = request.getHeader("token");
         String uuid = request.getHeader("uuid");
         String username = request.getHeader("username");

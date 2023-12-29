@@ -1,5 +1,6 @@
 package tech.spiritualdarkness.itu.bean.vo.response;
 
+
 public class RelationStatus extends Status{
 
     public static RelationStatus QuerySuccess = new RelationStatus(202,true,"查询成功");

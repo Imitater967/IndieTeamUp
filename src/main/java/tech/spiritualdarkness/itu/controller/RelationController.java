@@ -19,11 +19,11 @@ public class RelationController {
     }
 
     //关注员工
-    @PostMapping("/friend_employee/")
+    @GetMapping("/friend_employee")
     public RelationStatus friendEmployee(
             @RequestHeader Integer uuid,
-            @RequestBody Integer target_uuid,
-            @RequestBody Boolean friend
+            @RequestParam Integer target_uuid,
+            @RequestParam Boolean friend
     ){
         if(uuid == null || target_uuid == null || friend == null){
             return RelationStatus.ArgError;
@@ -32,11 +32,11 @@ public class RelationController {
     }
 
     //关注员工
-    @PostMapping("/friend_company/")
+    @GetMapping("/friend_company")
     public RelationStatus friendCompany(
             @RequestHeader Integer uuid,
-            @RequestBody Integer target_uuid,
-            @RequestBody Boolean friend
+            @RequestParam Integer target_uuid,
+            @RequestParam Boolean friend
     ){
         if(uuid == null || target_uuid == null || friend == null){
             return RelationStatus.ArgError;
@@ -46,7 +46,7 @@ public class RelationController {
 
     @GetMapping("/query")
     public Result<Relationship,RelationStatus> queryRelationship(
-            @RequestHeader Integer uuid
+            @RequestParam Integer uuid
     ){
         Relationship relationship = new Relationship();
         if(uuid == null){

@@ -27,7 +27,7 @@ public class RelationServiceImpl implements IRelationService{
         wrapper.eq("employee_uuid",uuid);
         var records = relationMapper.selectList(wrapper);
         //判断是否超出最大记录数
-        if(records.size()>=maxFriend){
+        if(records.size()>=maxFriend&&friend){
             return RelationStatus.OutOfBounds;
         }
 
@@ -55,6 +55,33 @@ public class RelationServiceImpl implements IRelationService{
 
     @Override
     public RelationStatus friendEmployee(int uuid, int targetId, boolean friend) {
-        return null;
+        QueryWrapper wrapper =new QueryWrapper();
+        wrapper.eq("company_uuid",uuid);
+        var records = relationMapper.selectList(wrapper);
+        //判断是否超出最大记录数
+        if(records.size()>=maxFriend&&friend){
+            return RelationStatus.OutOfBounds;
+        }
+
+        wrapper.eq("employee_uuid", targetId);
+
+        //0. 缓存数据
+        JobEmployeeRelation relation = relationMapper.selectOne(wrapper);
+        //1. 删除记录
+        relationMapper.delete(wrapper);
+        //如果是Unfriend则删除记录
+        if(!friend){
+            return RelationStatus.UnFriendEmployeeSuccess;
+        }
+        //如果是friend,则添加记录
+        if (relation == null) {
+            relation = new JobEmployeeRelation();
+            relation.setEmployee_uuid(targetId);
+            relation.setCompany_uuid(uuid);
+        }
+        relation.setCompany_agree(true);
+        relationMapper.insert(relation);
+
+        return RelationStatus.FriendEmployeeSuccess;
     }
 }
