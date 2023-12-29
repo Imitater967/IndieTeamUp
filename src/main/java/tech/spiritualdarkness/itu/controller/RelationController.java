@@ -46,13 +46,14 @@ public class RelationController {
 
     @GetMapping("/query")
     public Result<Relationship,RelationStatus> queryRelationship(
-            @RequestParam Integer uuid
+            @RequestHeader Integer uuid,
+            @RequestParam Boolean asCompany
     ){
         Relationship relationship = new Relationship();
-        if(uuid == null){
+        if(asCompany == null){
             return new Result<>(RelationStatus.ArgError,null);
         }
 
-        return new Result<>(RelationStatus.QuerySuccess,relationService.queryRelationShip(uuid));
+        return new Result<>(RelationStatus.QuerySuccess,relationService.queryRelationShip(uuid,asCompany));
     }
 }

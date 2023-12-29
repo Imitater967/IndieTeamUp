@@ -9,6 +9,8 @@ import tech.spiritualdarkness.itu.bean.vo.relation.Relationship;
 import tech.spiritualdarkness.itu.bean.vo.response.RelationStatus;
 import tech.spiritualdarkness.itu.dao.JobEmployeeRelationMapper;
 
+import java.util.List;
+
 
 @Service
 public class RelationServiceImpl implements IRelationService{
@@ -17,8 +19,43 @@ public class RelationServiceImpl implements IRelationService{
     @Autowired
     JobEmployeeRelationMapper relationMapper;
     @Override
-    public Relationship queryRelationShip(int uuid) {
-        return null;
+    public Relationship queryRelationShip(int uuid,boolean asCompany) {
+        Relationship ship = new Relationship();
+        QueryWrapper wrapper =new QueryWrapper();
+        if(asCompany){
+            wrapper.eq("company_uuid",uuid);
+            List<JobEmployeeRelation> records = relationMapper.selectList(wrapper);
+
+            ship.friends = records.stream()
+                    .filter(x->x.isCompany_agree()&&x.isEmployee_agree())
+                    .map(JobEmployeeRelation::getEmployee_uuid)
+                    .toList();
+            ship.sentInvitations = records.stream()
+                    .filter(x->x.isCompany_agree()&&!x.isEmployee_agree())
+                    .map(JobEmployeeRelation::getEmployee_uuid)
+                    .toList();
+            ship.receivedInvitations = records.stream()
+                    .filter(x->!x.isCompany_agree()&&x.isEmployee_agree())
+                    .map(JobEmployeeRelation::getEmployee_uuid)
+                    .toList();
+            return ship;
+        }else {
+            wrapper.eq("employee_uuid",uuid);
+            List<JobEmployeeRelation> records = relationMapper.selectList(wrapper);
+            ship.friends = records.stream()
+                    .filter(x->x.isCompany_agree()&&x.isEmployee_agree())
+                    .map(JobEmployeeRelation::getCompany_uuid)
+                    .toList();
+            ship.sentInvitations = records.stream()
+                    .filter(x->!x.isCompany_agree()&&x.isEmployee_agree())
+                    .map(JobEmployeeRelation::getCompany_uuid)
+                    .toList();
+            ship.receivedInvitations = records.stream()
+                    .filter(x->x.isCompany_agree()&&!x.isEmployee_agree())
+                    .map(JobEmployeeRelation::getCompany_uuid)
+                    .toList();
+            return ship;
+        }
     }
 
     @Override
