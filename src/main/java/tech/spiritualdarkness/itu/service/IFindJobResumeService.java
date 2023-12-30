@@ -1,6 +1,6 @@
 package tech.spiritualdarkness.itu.service;
 
-import tech.spiritualdarkness.itu.bean.model.FindJobResume;
+import tech.spiritualdarkness.itu.bean.po.FindJobResume;
 import tech.spiritualdarkness.itu.bean.vo.response.Result;
 import tech.spiritualdarkness.itu.bean.vo.response.ResumeStatus;
 

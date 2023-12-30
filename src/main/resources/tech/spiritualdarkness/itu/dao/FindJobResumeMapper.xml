@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="tech.spiritualdarkness.itu.dao.FindJobResumeMapper">
-    <resultMap id="FindJobResumeMapper" type="tech.spiritualdarkness.itu.bean.model.FindJobResume">
+    <resultMap id="FindJobResumeMapper" type="tech.spiritualdarkness.itu.bean.po.FindJobResume">
         <id column="uuid" property="uuid"/>
         <result column="real_name" property="real_name" jdbcType="VARCHAR"/>
         <result column="age" property="age"/>
@@ -21,11 +21,11 @@
 <!--                fetchType="lazy"-->
 <!--                property="degree"-->
 <!--                column="uuid"-->
-<!--                javaType="tech.spiritualdarkness.itu.bean.model.UserEducation"-->
+<!--                javaType="tech.spiritualdarkness.itu.bean.po.UserEducation"-->
 <!--                select="tech.spiritualdarkness.itu.dao.EducationDegreeMapper.selectById"-->
 <!--            >-->
 <!--        </association>-->
-<!--        <collection property="userSkills" javaType="tech.spiritualdarkness.itu.bean.model.UserSkill">-->
+<!--        <collection property="userSkills" javaType="tech.spiritualdarkness.itu.bean.po.UserSkill">-->
 <!--            <id column="uuid" property="uuid"/>-->
 <!--            <result column="skill_name" property="skill_name"/>-->
 <!--            <result column="skill_level" property="skill_level"/>-->

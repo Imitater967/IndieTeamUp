@@ -18,3 +18,14 @@ create table itu_user_identify(
     primary key (uuid)
 
 ) engine = InnoDB  default charset = utf8mb4;
+
+drop table if exists itu_user_contact;
+create table itu_user_contact(
+    uuid int,
+    phone varchar(13),
+    wx varchar(20),
+    qq varchar(11),
+    mail varchar(30),
+    primary key (uuid)
+)engine = InnoDB
+ default charset = utf8mb4;

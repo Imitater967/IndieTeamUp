@@ -1,10 +1,9 @@
 package tech.spiritualdarkness.itu.service;
 
-import com.baomidou.mybatisplus.core.conditions.AbstractWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tech.spiritualdarkness.itu.bean.model.JobEmployeeRelation;
+import tech.spiritualdarkness.itu.bean.po.JobEmployeeRelation;
 import tech.spiritualdarkness.itu.bean.vo.relation.Relationship;
 import tech.spiritualdarkness.itu.bean.vo.response.RelationStatus;
 import tech.spiritualdarkness.itu.dao.JobEmployeeRelationMapper;

@@ -6,7 +6,7 @@
 头像系统: todo  
 好友系统: 基本完成, 详见RelationController.java  
 登录注册: 基本完成 , 详见UserController.java  
-联系方式: todo  
+联系方式: 基本完成  
 认证系统: todo (身份证, 营业执照认证)
 
 ## 拓展系统(以后可能会做的)

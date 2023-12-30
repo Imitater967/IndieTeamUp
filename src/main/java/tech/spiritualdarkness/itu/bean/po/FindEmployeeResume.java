@@ -1,8 +1,7 @@
-package tech.spiritualdarkness.itu.bean.model;
+package tech.spiritualdarkness.itu.bean.po;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

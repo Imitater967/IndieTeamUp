@@ -1,6 +1,5 @@
-package tech.spiritualdarkness.itu.bean.model;
+package tech.spiritualdarkness.itu.bean.po;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -10,10 +9,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
-import tech.spiritualdarkness.itu.bean.enumtype.EducationDegree;
 
 import java.io.Serializable;
-import java.util.List;
 
 
 @Data

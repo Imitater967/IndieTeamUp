@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tech.spiritualdarkness.itu.bean.model.User;
+import tech.spiritualdarkness.itu.bean.po.User;
 import tech.spiritualdarkness.itu.dao.UserMapper;
 import tech.spiritualdarkness.itu.bean.vo.response.Result;
 import tech.spiritualdarkness.itu.bean.vo.response.UserResultStatus;

@@ -1,4 +1,4 @@
-package tech.spiritualdarkness.itu.bean.model;
+package tech.spiritualdarkness.itu.bean.po;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;

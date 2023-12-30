@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="tech.spiritualdarkness.itu.dao.UserMapper">
-    <resultMap id="UserResultMap" type="tech.spiritualdarkness.itu.bean.model.User">
+    <resultMap id="UserResultMap" type="tech.spiritualdarkness.itu.bean.po.User">
         <id column="uuid" property="uuid"/>
         <result column="username" property="username"/>
         <result column="password" property="password"/>
@@ -9,12 +9,12 @@
         <result column="jwt_code" property="jwt_code"/>
     </resultMap>
 
-    <insert id="add" parameterType="tech.spiritualdarkness.itu.bean.model.User">
+    <insert id="add" parameterType="tech.spiritualdarkness.itu.bean.po.User">
         insert into `itu_user` (username, password)
         values (#{username}, #{password})
     </insert>
 
-    <update id="login" parameterType="tech.spiritualdarkness.itu.bean.model.User">
+    <update id="login" parameterType="tech.spiritualdarkness.itu.bean.po.User">
         update `itu_user`
         set jwt_code = #{jwt_code}
         where uuid = #{uuid}

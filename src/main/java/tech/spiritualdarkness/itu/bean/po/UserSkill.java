@@ -1,12 +1,9 @@
-package tech.spiritualdarkness.itu.bean.model;
+package tech.spiritualdarkness.itu.bean.po;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import tech.spiritualdarkness.itu.bean.enumtype.EducationDegree;
-
-import java.sql.Date;
 
 @Data
 @NoArgsConstructor

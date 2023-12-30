@@ -6,7 +6,7 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.mysql.cj.util.StringUtils;
-import tech.spiritualdarkness.itu.bean.model.User;
+import tech.spiritualdarkness.itu.bean.po.User;
 
 import java.util.Calendar;
 

@@ -1,6 +1,6 @@
 package tech.spiritualdarkness.itu.dao;
 
-import tech.spiritualdarkness.itu.bean.model.UserSkill;
+import tech.spiritualdarkness.itu.bean.po.UserSkill;
 
 import java.util.List;
 
