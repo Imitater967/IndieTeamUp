@@ -3,7 +3,7 @@
 ## 基本系统
 
 简历系统: 完成基本的,详情未完成, 详见RelationController.java  
-头像系统: todo  
+头像系统: 基本完成  
 好友系统: 基本完成, 详见RelationController.java  
 登录注册: 基本完成 , 详见UserController.java  
 联系方式: 基本完成  
