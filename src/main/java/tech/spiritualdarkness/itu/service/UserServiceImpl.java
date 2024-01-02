@@ -3,6 +3,8 @@ package tech.spiritualdarkness.itu.service;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import tech.spiritualdarkness.itu.bean.po.User;
 import tech.spiritualdarkness.itu.dao.UserMapper;
@@ -14,6 +16,8 @@ import tech.spiritualdarkness.itu.util.JWTUtil;
 public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements IUserService {
 
     @Autowired
+    private PasswordEncoder encoder;
+    @Autowired
     UserMapper userDAO;
 
     @Override
@@ -24,6 +28,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements IUs
             result.setStatus(UserResultStatus.UserExits);
             return result;
         }
+        user.setPassword(encoder.encode(user.getPassword()));
         userDAO.add(user);
         user = userDAO.getByUsername(user.getUsername());
         result.setData(user);
@@ -41,7 +46,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements IUs
             return result;
         }
 
-        boolean passwordEqual = dbUser.getPassword().equals(user.getPassword());
+        boolean passwordEqual =encoder.matches(user.getPassword(),dbUser.getPassword());
         if (!passwordEqual) {
             return result;
         }
