@@ -1,5 +1,6 @@
 package tech.spiritualdarkness.itu.bean.po;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +14,7 @@ import tech.spiritualdarkness.itu.bean.enumtype.ProjectProgressType;
 @AllArgsConstructor
 @TableName("itu_project_progress")
 public class ProjectProgress {
+    @TableId
     Integer uuid;
     ProjectProgressType type;
     ProjectProgressStatus status;

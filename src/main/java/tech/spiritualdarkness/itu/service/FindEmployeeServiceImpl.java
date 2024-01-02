@@ -38,7 +38,7 @@ public class FindEmployeeServiceImpl implements  IFindEmployeeService{
 
         //链表查询
         QueryWrapper skillQuery = new QueryWrapper();
-        skillQuery.eq("project_id",uuid);
+        skillQuery.eq("uuid",uuid);
         resume.setProgress(progressMapper.selectList(skillQuery));
 
         return result;
@@ -79,6 +79,7 @@ public class FindEmployeeServiceImpl implements  IFindEmployeeService{
         progressMapper.deleteById(uuid);
 
         for (ProjectProgress progress : progresses) {
+            progress.setUuid(resume.getPublisher_uuid());
             progressMapper.insert(progress);
         }
     }

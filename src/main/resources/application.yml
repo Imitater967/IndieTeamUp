@@ -9,6 +9,8 @@ spring:
       enabled: true
       max-file-size: 512KB
       max-request-size: 1MB
+  main:
+    allow-bean-definition-overriding: true
 server:
   port: 80
 mybatis-plus:

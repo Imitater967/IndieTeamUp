@@ -17,8 +17,7 @@ import tech.spiritualdarkness.itu.util.JWTUtil;
 @Component
 public class JWTInterceptor implements HandlerInterceptor {
 
-    final
-    UserMapper userDAO;
+    final UserMapper userDAO;
 
     public JWTInterceptor(UserMapper userDAO) {
         this.userDAO = userDAO;
