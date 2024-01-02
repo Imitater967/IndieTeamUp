@@ -20,12 +20,14 @@ create table `itu_project_resume`
 ) engine = InnoDB
   default charset = utf8mb4;
 
+drop table if exists `itu_project_progress`;
 create table `itu_project_progress`
 (
-    project_id         int not null auto_increment primary key ,
-    progress_type     enum('程序','美术','设计','音乐','音效'),
-    next_finish_stage     ENUM('Demo','正式发行','版本更新'),
-    progress_description varchar(255),
-    progress float
+    uuid         int not null,
+    type        enum('总进度','设计','精灵资产','模型资产','贴图资产','材质资产',
+        '动画资产','音效资产','UI资产','程序资产'),
+    status      enum('未计算','筹备中','工作中','动态'),
+    description varchar(255),
+    progress float default 0
 ) engine = InnoDB
   default charset = utf8mb4;
