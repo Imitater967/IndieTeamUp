@@ -31,26 +31,26 @@ create table itu_user_person_education
   default charset = utf8mb4;
 
 
-drop table if exists itu_user_person_skill_overview;
-create table itu_user_person_skill_overview
+# drop table if exists itu_user_person_skill_overview;
+# create table itu_user_person_skill_overview
+# (
+#     uuid        int not null ,
+#     skill_name varchar(16) not null ,
+#     skill_level tinyint not null
+# ) engine = InnoDB
+#   default charset = utf8mb4;
+
+
+drop table if exists `itu_user_person_skill`;
+create table `itu_user_person_skill`
 (
-    uuid        int not null ,
+    uuid         int not null,
     skill_name varchar(16) not null ,
-    skill_level tinyint not null
-) engine = InnoDB
-  default charset = utf8mb4;
-
-
-create table `itu_user_person_skill_detail`
-(
-    uuid         int not null unique ,
-    skill_name varchar(16) not null unique ,
     skill_level tinyint not null ,
-    start_time DATETIME not null ,
-    end_time DATETIME not null ,
+    start_time DATE not null ,
+    end_time DATE not null ,
     company varchar(50) not null ,
     project varchar(16) not null ,
-    url   varchar(255) not null ,
-    primary key (`uuid`,`skill_name`)
+    url   varchar(255) not null
 ) engine = InnoDB
   default charset = utf8mb4;
