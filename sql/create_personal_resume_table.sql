@@ -16,6 +16,7 @@ create table itu_user_person_resume
     salary_stock tinyint,
     salary tinyint,
     introduce varchar(255),
+    update_date Date,
     primary key (`uuid`)
 ) engine = InnoDB
   default charset = utf8mb4;

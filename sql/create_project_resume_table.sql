@@ -15,6 +15,7 @@ create table `itu_project_resume`
     finish_date DATE,
     pay_method ENUM('免费','月薪','外包','均可'),
     work_method ENUM('兼职','全职','均可'),
+    update_date Date,
     PRIMARY KEY (`publisher_uuid`)
 
 ) engine = InnoDB

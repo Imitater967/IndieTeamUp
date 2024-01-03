@@ -1,5 +1,6 @@
 package tech.spiritualdarkness.itu.bean.po;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -8,7 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import tech.spiritualdarkness.itu.bean.enumtype.*;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 
@@ -30,6 +31,8 @@ public class FindEmployeeResume {
     private Date finish_date;
     private PayMethod pay_method;
     private WorkMethod work_method;
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private java.sql.Date update_date;
 
     @TableField(exist = false)
     private List<ProjectProgress> progress;
