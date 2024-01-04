@@ -38,8 +38,7 @@ public class FindJobResume {
     private String current_province;
     private String expect_province;
     @NotEmpty
-    private String first_job;
-    private String second_job;
+    private String job;
     @NotEmpty
     private int salary_stock;
     @NotEmpty
